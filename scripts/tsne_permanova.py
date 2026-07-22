@@ -44,8 +44,7 @@ def main():
     parser.add_argument("--matrix", required=True, help="Presence/Absence CSV")
     parser.add_argument("--meta_list", nargs='+', required=True,
                         help="Format: FactorName:Path (e.g., ST:st.tsv Country:loc.tsv)")
-    
-    # 修改1: 默认输出文件名后缀改为 .pdf
+
     parser.add_argument("--output", default="permanova_comparison.pdf", help="Output plot path (PDF format)")
     args = parser.parse_args()
 

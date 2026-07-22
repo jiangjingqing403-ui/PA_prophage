@@ -48,7 +48,6 @@ def main():
     df_mash = pd.read_csv(args.mash)
     df_mash.rename(columns={'Sample': 'Strain'}, inplace=True)
 
-    # 缺失值补0依然非常重要：有的菌株可能完全没有原噬菌体或防御系统
     df_mash['Prophage_Count'] = df_mash['Strain'].map(strain_prophage_counts).fillna(0)
     df_mash['Defense_Count'] = df_mash['Strain'].map(strain_defense_counts).fillna(0)
 
@@ -95,7 +94,6 @@ def main():
     print(f"Proportion of iterations with P<0.05: {sig_ratio:.1f}%")
     print("=" * 45 + "\n")
 
-    # 可视化部分保持不变
     plt.figure(figsize=(8, 6))
     sns.set_theme(style="whitegrid")
 
